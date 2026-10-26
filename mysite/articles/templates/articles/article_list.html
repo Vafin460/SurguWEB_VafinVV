@@ -1,0 +1,32 @@
+
+{% extends "base_layout.html" %}
+{% block title %}Article List{% endblock title %}
+  {% block content %}
+    <div class="container">
+      <div class="form">
+        <h1>Все интересные места Сургута</h1>
+    </div>
+      <div class="row row-cols-1 md:row-cols-3 g-4">
+        {% for element in articles %}
+          <div class="col">
+            <div class="card h-100">
+              {% if element.thumbnail %}
+                <a href="{% url 'article_detail' slug=element.slug %}">
+                <img src="{{ element.thumbnail.url }}" class="card-img-top" alt="..." />
+                {% else %}
+                <div class="bg-secondary text-white text-center py-5">Нет обложки</div>
+                {% endif %}
+              <div class="card-body">
+                <h4 class="card-title">{{ element.title }}</h4>
+                </a>
+                <p class="card-text">{{ element.snippet }}</p>
+              </div>
+              <div class="card-footer">
+                <small class="fg-2">{{ element.date }}</small>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endblock content %}
