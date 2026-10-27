@@ -2,10 +2,13 @@
 {% block title %}Login{% endblock title %}
 {% block content %}
 
-<form class="form form-login" action="/accounts/login/" method="post">
+<form class="form form-login" action="{% url 'accounts:login' %}" method="post">
         <h1>Login</h1>
         {% csrf_token %}
         {{ form }}
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}">
+        {% endif %}
         <button type="submit">Login</button>
     </form>
 

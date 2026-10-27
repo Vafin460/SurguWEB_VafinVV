@@ -50,16 +50,19 @@
             ></button>
           </div>
           <div class="drawer-body">
-            <a class="navbar-brand" href="/">VVV_609-31z</a>
+            <a class="navbar-brand" href="{% url 'homepage' %}">VVV_609-31z</a>
             <ul class="navbar-nav me-auto mb-2 md:mb-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/">Главная</a>
+                <a class="nav-link" href="{% url 'homepage' %}">Главная</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/articles/">Статьи</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/about/">О проекте</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'articles:create' %}">Новая статья</a>
               </li>
             </ul>
             <div class="d-flex gap-2">

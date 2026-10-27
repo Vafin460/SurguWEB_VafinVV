@@ -13,7 +13,7 @@
           <div class="col">
             <div class="card h-100">
               {% if element.thumbnail %}
-                <a href="{% url 'article_detail' slug=element.slug %}">
+                <a href="{% url 'articles:article_detail' slug=element.slug %}">
                 <img src="{{ element.thumbnail.url }}" class="card-img-top" alt="..." />
                 {% else %}
                 <div class="bg-secondary text-white text-center py-5">Нет обложки</div>
